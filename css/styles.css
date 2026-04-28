@@ -1,0 +1,416 @@
+:root {
+  --color-principal: #1e3a5f;
+  --color-secundario: #f4f1ea;
+  --color-acento: #6c9a8b;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.logo img {
+  height: 48px;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.logo img {
+  height: 55px;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
+}
+
+.logo span {
+  opacity: 0.9;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: stretch;
+  background: #f4f1ea;
+  font-family: system-ui, sans-serif;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #777;
+  font-size: 0.9rem;
+  margin-top: auto;
+  opacity: 0.7;
+}
+
+header {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--color-principal);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  color: white;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  position: relative;
+}
+
+.nav-logo {
+  height: 34px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-title.center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+}
+
+.btn-back {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.btn {
+  margin-top: 1.5rem;
+  background: #6366f1;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  max-width: 300px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+}
+
+.btn:hover {
+  background: #4f46e5;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px) scale(1.02);
+}
+
+.nav-title {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background: var(--color-principal);
+  color: white;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+.hero {
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #1e3a5f, #2c4a73);
+  color: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  margin: 1rem;
+  overflow: hidden;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: center;
+  align-items: center;
+
+}
+
+.hero h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.hero p {
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+
+
+.section-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #34495e;
+  margin-bottom: 0.5rem;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: #6366f1;
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.catalogo-preview {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.preview-card {
+  position: relative;
+  min-width: 140px;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: none;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+
+}
+
+.preview-card img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 0.5rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  color: white;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.catalogo {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding: 1rem;
+  flex: 1;
+}
+
+.card-libro {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: white;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card-libro:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-libro h3 {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.card-libro p {
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.card-libro span {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.card-libro a {
+  margin-top: 0.5rem;
+  text-decoration: none;
+  color: white;
+  background: var(--color-acento);
+  padding: 0.5rem;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.card-libro img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.detalle {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+.detalle img {
+  width: 100%;
+  max-height: 350px;
+  object-fit: contain;
+  border-radius: 10px;
+  background: #f4f4f4;
+}
+
+.detalle h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.detalle p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.detalle span {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--color-principal);
+}
+
+.detalle button {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--color-acento);
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.detalle button:hover {
+  background: #5a8577;
+  transform: translateY(-2px);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.book-cover {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.skeleton {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  background: linear-gradient(90deg, #eee 25%, #ddd 50%, #eee 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+button {
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: var(--color-acento);
+}
+
+@media (min-width: 768px) {
+  .catalogo {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .detalle {
+    flex-direction: row;
+  }
+
+  .detalle img {
+    width: 40%;
+  }
+
+  .hero {
+    padding: 6rem 2rem;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .catalogo {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

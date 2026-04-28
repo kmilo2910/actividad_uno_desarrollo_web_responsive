@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Librería Nexus</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="logo">
+        <img src="../img/logo-mini.svg" alt="Logo de Nexus">
+        <img src="../img/texto-logo.svg" alt="nombre Nexus" style="zoom: 0.5;">
+      </div>
+      <h2 id="hero-title">Cargando...</h2>
+      <p id="hero-description"></p>
+      <a href="catalogo.html" class="btn">Ver catálogo</a>
+    </div>
+  </section>
+  <section style="padding: 2rem; text-align:center;">
+    <h3 class="section-title">Explora nuestra colección</h3>
+
+  </section>
+
+  <footer>
+    <p>© Nexus</p>
+  </footer>
+
+  <script>
+    fetch('https://mock.apidog.com/m1/1268515-1266490-default/books')
+      .then(res => res.json())
+      .then(data => {
+
+        localStorage.setItem('libros', JSON.stringify(data));
+        const formatoCOP = new Intl.NumberFormat('es-CO', {
+          style: 'currency',
+          currency: 'COP'
+        });
+
+        const libro = data[0];
+        document.getElementById('hero-title').textContent = libro.title;
+        document.getElementById('hero-description').textContent =
+          libro.category + " • " + formatoCOP.format(libro.price);
+      })
+      .catch(err => {
+        console.error("Error cargando libros", err);
+      });
+  </script>
+
+</body>
+
+</html>

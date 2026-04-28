@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalle - Nexus</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+
+  <header>
+    <nav class="nav">
+      <div class="nav-logo">
+        <a href="index.html" class="nav-logo-link">
+          <img src="../img/logo-mini.svg" alt="Nexus" class="nav-logo">
+        </a>
+      </div>
+      <button class="btn-back" onclick="goBack()">Atras</button>
+      <span class="nav-title center">Detalle</span>
+    </nav>
+  </header>
+
+  <section class="detalle">
+    <p>Cargando libro...</p>
+  </section>
+
+  <footer>
+    <p>© Nexus</p>
+  </footer>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+
+    const libros = JSON.parse(localStorage.getItem('libros')) || [];
+
+    const libro = libros.find(l => l.id == id);
+
+    const contenedor = document.querySelector('.detalle');
+
+    if (libro) {
+
+      const formatoCOP = new Intl.NumberFormat('es-CO', {
+        style: 'currency',
+        currency: 'COP'
+      });
+
+      contenedor.innerHTML = `
+        <img src="${libro.image || '../img/default.png'}" alt="${libro.title}"
+             onerror="this.onerror=null; this.src='../img/default.png';">
+        <div class="info">
+          <h2>${libro.title}</h2>
+          <p>${libro.category}</p>
+          <p>${formatoCOP.format(libro.price)}</p>
+          <button>Comprar</button>
+        </div>
+      `;
+    } else {
+      contenedor.innerHTML = `
+        <p>Libro no encontrado.</p>
+        <a href="catalogo.html">Volver al catálogo</a>
+      `;
+    }
+  </script>
+
+  <script>
+    function goBack() {
+      if (document.referrer) {
+        history.back();
+      } else {
+        window.location.href = 'catalogo.html';
+      }
+    }
+  </script>
+
+</body>
+
+</html>

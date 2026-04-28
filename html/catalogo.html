@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo - Nexus</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+
+  <header>
+    <nav class="nav">
+      <a href="index.html">
+        <img src="../img/logo-mini.svg" class="nav-logo">
+      </a>
+
+      <span class="nav-title center">Catálogo</span>
+    </nav>
+  </header>
+
+  <section class="catalogo"></section>
+
+  <footer>
+    <p>© Nexus</p>
+  </footer>
+
+
+  <script>
+    fetch('https://mock.apidog.com/m1/1268515-1266490-default/books')
+      .then(res => res.json())
+      .then(data => {
+        const contenedor = document.querySelector('.catalogo');
+
+        localStorage.setItem('libros', JSON.stringify(data));
+
+        data.forEach(libro => {
+          const card = document.createElement('div');
+          card.classList.add('card-libro');
+
+          const formatoCOP = new Intl.NumberFormat('es-CO', {
+            style: 'currency',
+            currency: 'COP'
+          });
+
+          card.innerHTML = `
+            <div class="img-container">
+                <div class="skeleton"></div>
+                <img src="${libro.image || '../img/default.png'}" alt="${libro.title}"
+                    style="display:none"
+                    onload="this.style.display='block'; this.previousElementSibling.remove()"
+                    onerror="this.onerror=null; this.src='../img/default.png'; this.style.display='block'; this.previousElementSibling.remove()">
+            </div>
+            <h3>${libro.title}</h3>
+            <p>${libro.category}</p>
+            <span>${formatoCOP.format(libro.price)}</span>
+            <a href="detalle.html?id=${libro.id}">Ver más</a>
+            `;
+
+          contenedor.appendChild(card);
+        });
+      });
+  </script>
+
+</body>
+
+</html>
